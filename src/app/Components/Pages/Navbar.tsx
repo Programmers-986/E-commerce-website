@@ -60,26 +60,27 @@ const Navbar = () => {
               Products 
               {isProductsDropdownOpen && (
                 <div className="absolute top-full left-0 w-50 bg-[#EEE7FE] border-b shadow-sm mt-2">
-                  <a href="/" className="block text-black hover:bg-gray-300 rounded-lg p-4 font-semibold border-b border-gray-500">
+                  <a href="/clothing" className="block text-black hover:bg-gray-300 rounded-lg p-4 font-semibold border-b border-gray-500">
                     Clothing
                   </a>
-                  <a href="/" className="block text-black hover:bg-gray-300 rounded-md p-4 font-semibold border-b border-gray-500">
+                  <a href="/electronics" className="block text-black hover:bg-gray-300 rounded-md p-4 font-semibold border-b border-gray-500">
                     Electronics
                   </a>
-                  <a href="/" className="block text-black hover:bg-gray-300 rounded-md p-4 font-semibold border-b border-gray-500">
+                  <a href="/footwear" className="block text-black hover:bg-gray-300 rounded-md p-4 font-semibold border-b border-gray-500">
                     Footwear
                   </a>
                 </div>
               )}
             </div>
             {/* Add to Cart link */}
-            <a href="/" className="text-black p-4 font-semibold relative pr-2 text-2xl flex items-center gap-7" style={{ cursor: "pointer" }}>
+            <a href="/cart" className="text-black p-4 font-semibold relative pr-2 text-2xl flex items-center gap-7" style={{ cursor: "pointer" }}>
               <Image src={cart_icon} height={50} width={50} alt="Cart icon" />
               <span className="ml-1"></span>
             </a>
-            <button className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto focus:outline-none focus:ring focus:border-blue-300 "> Login</button>
-          </div>
-        
+           <a href="/your-desired-url" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto focus:outline-none focus:ring focus:border-blue-300">
+  Login
+</a>
+          </div>        
         </div>
       </div>
     </nav>
