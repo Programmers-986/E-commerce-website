@@ -2,12 +2,31 @@
 import React, { useState, useEffect } from "react";
 import logo from '../Assets/logo.png';
 import cart_icon from '../Assets/cart_icon.png';
+import Link from 'next/link';
 import Image from "next/image";
+import LoginPage from './auth/LoginPage';
 
 const Navbar = () => {
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [showLoginPage, setShowLoginPage] = useState(false);
+
+  interface LoginPageProps {
+    onClose: () => void;
+  }
+  
+  const handleLoginClick = () => {
+    
+    setShowLoginPage(true);
+  
+  };
+
+  const handleCloseLoginPage = () => {
+    setShowLoginPage(false);
+
+    
+  };
 
   const toggleProductsDropdown = () => {
     setIsProductsDropdownOpen(!isProductsDropdownOpen);
@@ -32,6 +51,8 @@ const Navbar = () => {
   }, []);
 
   return (
+    
+    <div>
     <nav className="bg-white text-black border-2 border-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 ">
@@ -72,18 +93,30 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            {/* Add to Cart link */}
+
             <a href="/cart" className="text-black p-4 font-semibold relative pr-2 text-2xl flex items-center gap-7" style={{ cursor: "pointer" }}>
               <Image src={cart_icon} height={50} width={50} alt="Cart icon" />
               <span className="ml-1"></span>
             </a>
-           <a href="/your-desired-url" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto focus:outline-none focus:ring focus:border-blue-300">
+           
+            <button onClick={handleLoginClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto focus:outline-none focus:ring focus:border-blue-300">
   Login
-</a>
-          </div>        
+  </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      {showLoginPage && (
+        <div className="fixed inset-0 z-40 bg-gray-500 bg-opacity-75"> {/* Adjust opacity as needed */}
+        <div className="fixed inset-0 flex items-center justify-center z-50 min-h-screen margin: auto">
+          <div className="bg-white p-8 rounded-lg shadow-md margin: auto ">
+            <LoginPage onClose={handleCloseLoginPage} />
+          </div>
+        </div>
+        </div>
+      
+      )}
+    </div>
   );
 };
 
