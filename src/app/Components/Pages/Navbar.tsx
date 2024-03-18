@@ -5,6 +5,7 @@ import cart_icon from '../Assets/cart_icon.png';
 import Link from 'next/link';
 import Image from "next/image";
 import LoginPage from './auth/LoginPage';
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
@@ -107,7 +108,7 @@ const Navbar = () => {
         </div>
       </nav>
       {showLoginPage && (
-        <div className="fixed inset-0 z-40 bg-gray-500 bg-opacity-75"> {/* Adjust opacity as needed */}
+        <div className="fixed inset-0 z-40 bg-gray-700 bg-opacity-75"> {/* Adjust opacity as needed */}
         <div className="fixed inset-0 flex items-center justify-center z-50 min-h-screen margin: auto">
           <div className="bg-white p-8 rounded-lg shadow-md margin: auto ">
             <LoginPage onClose={handleCloseLoginPage} />
