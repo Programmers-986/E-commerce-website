@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import cart_cross_icon from '../../Assets/cart_cross_icon.png'; // Adjusted path
 import Image from "next/image";
-import { useRouter } from 'next/router';
+
 
 interface LoginPageProps {
   onClose: () => void;
@@ -11,14 +11,14 @@ interface LoginPageProps {
 const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle login logic here
     console.log('Email:', email);
     console.log('Password:', password);
-    router.push('/successpage');
+   
   };
 
   return (
@@ -58,7 +58,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
           <div className="mb-4 text-black-500 hover:underline text-5xl">
             Don't have an account?{" "}
             <Link href="/register">
-              <a>Register now!</a>
+              Register now!
             </Link>
           </div>
           <div className="flex items-center justify-between">
@@ -67,11 +67,6 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
               className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               Login
             </button>
-            <Link href="/successpage">
-              <a className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Register
-              </a>
-            </Link>
           </div>
         </form>
       </div>

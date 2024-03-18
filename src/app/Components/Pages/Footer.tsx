@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
         </div>
         <div className="flex flex-col items-center gap-4 text-[#1a1a1a] text-lg">
-            <hr className="w-1 border-none rounded-xl h-0.5 bg-[#c7c7c7]" />
+            <hr className="w-100% border-none rounded-xl h-1 bg-[#c7c7c7]" />
             <p className="font-semibold">Copyright @ShoppingHub-All Rights Reserved</p>
         </div>
      </div>
