@@ -4,7 +4,7 @@ import logo from '../Assets/logo.png';
 import cart_icon from '../Assets/cart_icon.png';
 import Link from 'next/link';
 import Image from "next/image";
-import LoginPage from './auth/LoginPage';
+import LoginPage from './LoginPage';
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
