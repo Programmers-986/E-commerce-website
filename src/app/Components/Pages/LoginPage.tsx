@@ -10,7 +10,9 @@ interface LoginPageProps {
 const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [registerMode, setRegisterMode] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +23,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
 
   const handleRegisterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle registration logic here
+    setErrorMessage('');
+    if (password !== confirmPassword) {
+      setErrorMessage('Passwords do not match!');
+      return;
+    }
+    // Handle registration logic here with validated passwords
     console.log('Email:', email);
     console.log('Password:', password);
   };
@@ -64,7 +71,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
             <div className="flex items-center justify-between mb-10">
               <button
                 type="submit"
-                className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full max-w-xs h-16 rounded-2xl"
+                className="mt-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full max-w-xs h-16 rounded-2xl"
               >
                 Login
               </button>
@@ -73,7 +80,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
               Don't have an account? <br />
               <a
                 href="#"
-                className="hover:underline"
+                className="text-xl text-blue-500 hover:text-blue-800 hover:underline"
                 onClick={() => setRegisterMode(true)}
               >
                 Register Now!
@@ -86,8 +93,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
             setEmail={setEmail}
             password={password}
             setPassword={setPassword}
+            confirmPassword={confirmPassword}
+            setConfirmPassword={setConfirmPassword} 
             setRegisterMode={setRegisterMode}
             handleSubmit={handleRegisterSubmit}
+            errorMessage={errorMessage}
           />
         )}
       </div>
@@ -100,9 +110,12 @@ const RegisterForm: React.FC<{
   setEmail: React.Dispatch<React.SetStateAction<string>>;
   password: string;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
+  confirmPassword: string;
+  setConfirmPassword: React.Dispatch<React.SetStateAction<string>>;
   setRegisterMode: React.Dispatch<React.SetStateAction<boolean>>;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-}> = ({ email, setEmail, password, setPassword, setRegisterMode, handleSubmit }) => {
+  errorMessage: string;
+}> = ({ email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, setRegisterMode, handleSubmit, errorMessage }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-4">
@@ -138,11 +151,12 @@ const RegisterForm: React.FC<{
         <input
           type="password"
           id="confirmPassword"
-          value={password} // This should be different state if you want to confirm the password
-          onChange={(e) => setPassword(e.target.value)} // This should update different state for confirmation
+          value={confirmPassword} 
+          onChange={(e) => setConfirmPassword(e.target.value)}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           required
         />
+        {errorMessage && <p className="text-red-500 text-md font-semibold mt-1">{errorMessage}</p>}
       </div>
       <div className="flex flex-col items-center">
         <button
@@ -153,16 +167,17 @@ const RegisterForm: React.FC<{
         </button>
         <a
           href="#"
-          className="mt-2 inline-block align-baseline font-bold text-md text-blue-500 hover:text-blue-800"
+          className="mt-2 inline-block align-baseline font-bold text-2xl text-black-500"
           onClick={() => setRegisterMode(false)}
         >
-          Already have an account? Login
+          Already have an account? <br /> 
+          <div className='text-xl text-blue-500 hover:text-blue-800 hover:underline'>  
+          Login
+           </div> 
         </a>
       </div>
     </form>
   );
 };
-
-
 
 export default LoginPage;
