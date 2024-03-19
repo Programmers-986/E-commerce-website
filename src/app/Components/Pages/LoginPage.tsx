@@ -29,7 +29,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
   return (
     <div className="absolute bottom-1/9 left-1/5 transform -translate-x-1/2 -translate-y-1/2 flex items-col items-center justify-center">
       <div className="bg-white p-20 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6">Login</h2>
+        <h2 className="text-2xl font-bold mb-6">{registerMode ? 'Register' : 'Login'}</h2>
         <button onClick={onClose} className="absolute top-5 right-5 mt-4">
           <Image src={cart_cross_icon} height={2} width={30} alt="Cart icon" />
         </button>
@@ -130,23 +130,21 @@ const RegisterForm: React.FC<{
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           required
         />
-        
       </div>
-        <div className="mb-4">
-        <label htmlFor="password" className="block text-gray-700 font-bold mb-2">
-         Confirm Password
+      <div className="mb-4">
+        <label htmlFor="confirmPassword" className="block text-gray-700 font-bold mb-2">
+          Confirm Password
         </label>
         <input
           type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          id="confirmPassword"
+          value={password} // This should be different state if you want to confirm the password
+          onChange={(e) => setPassword(e.target.value)} // This should update different state for confirmation
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           required
         />
-        
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col items-center">
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -155,7 +153,7 @@ const RegisterForm: React.FC<{
         </button>
         <a
           href="#"
-          className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+          className="mt-2 inline-block align-baseline font-bold text-md text-blue-500 hover:text-blue-800"
           onClick={() => setRegisterMode(false)}
         >
           Already have an account? Login
@@ -164,5 +162,7 @@ const RegisterForm: React.FC<{
     </form>
   );
 };
+
+
 
 export default LoginPage;

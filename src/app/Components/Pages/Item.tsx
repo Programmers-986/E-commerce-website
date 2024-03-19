@@ -10,14 +10,14 @@ interface ItemProps {
 
 const Item: React.FC<ItemProps> = ({ image, name, new_price, old_price }) => {
   return (
-    <div style={{ width: '350px' }} className='item'>
+    <div className='item w-350'>
       <img src={image} alt="" />
       <p style={{ margin: '6px 0px' }}>{name}</p>
-      <div style={{ display: 'flex', gap: '20px' }} className='item-prices'>
-        <div style={{ color: '#374151', fontSize: '18px', fontWeight: 600 }} className='item-price-new'>
+      <div className='item-prices flex gap-5'>
+        <div className='item-price-new text-[#374151] text-xl font-semibold '>
           ${new_price}
         </div>
-        <div style={{ color: '#8c8c8c', fontSize: '18px', fontWeight: 500, textDecoration: 'line-through' }} className='item-price-old'>
+        <div className='item-price-old text-[#8c8c8c] text-xl font-semibold'>
           ${old_price}
         </div>
       </div>
