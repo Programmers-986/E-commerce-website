@@ -74,25 +74,20 @@ const Navbar = () => {
               About
             </a>
             {/* Products dropdown */}
-            <div
-              className="text-black hover:bg-gray-300 rounded-sm p-4 font-semibold relative text-2xl"
-              onClick={toggleProductsDropdown}
-              style={{ cursor: "pointer", marginRight: "8px" }}
-            >
-              Products 
-              {isProductsDropdownOpen && (
-                <div className="absolute top-full left-0 w-50 bg-[#EEE7FE] border-b shadow-sm mt-2">
-                  <a href="/clothing" className="block text-black hover:bg-gray-300 rounded-lg p-4 font-semibold border-b border-gray-500">
-                    Clothing
-                  </a>
-                  <a href="/electronics" className="block text-black hover:bg-gray-300 rounded-md p-4 font-semibold border-b border-gray-500">
-                    Electronics
-                  </a>
-                  <a href="/footwear" className="block text-black hover:bg-gray-300 rounded-md p-4 font-semibold border-b border-gray-500">
-                    Footwear
-                  </a>
-                </div>
-              )}
+            <div className=" flex justify-end  md:flex items-center space-x-4 gap-10">
+            <a href="/" className="text-black hover:bg-gray-300 rounded-md p-4 font-semibold text-2xl">
+              Men
+            </a>
+            </div>
+            <div className=" flex justify-end  md:flex items-center space-x-4 gap-10">
+            <a href="/" className="text-black hover:bg-gray-300 rounded-md p-4 font-semibold text-2xl">
+              Women
+            </a>
+            </div>
+            <div className=" flex justify-end  md:flex items-center space-x-4 gap-10">
+            <a href="/" className="text-black hover:bg-gray-300 rounded-md p-4 font-semibold text-2xl">
+              Kids
+            </a>
             </div>
 
             <a href="/cart" className="text-black p-4 font-semibold relative pr-2 text-2xl flex items-center gap-7" style={{ cursor: "pointer" }}>
