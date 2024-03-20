@@ -7,7 +7,7 @@ import Offers from "./Components/Pages/Offers";
 import NewsLetter from "./Components/Pages/NewsLetter";
 import Popular from "./Components/Pages/Popular";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Shop from "./Components/Pages/Shop";
+
 import ShopCategory from "./Components/Pages/ShopCategory";
 import Product from "./Product";
 import Cart from "./Cart";
@@ -22,7 +22,7 @@ export default function Home() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Shop />} />
+         
           <Route path="/mens" element={<ShopCategory banner = {men_banner} category="men" />} />
           <Route path="/womens" element={<ShopCategory banner = {women_banner} category="women" />} />
           <Route path="/kids" element={<ShopCategory banner = {kids_banner} category="kid" />} />

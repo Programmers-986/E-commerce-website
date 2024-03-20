@@ -13,9 +13,7 @@ const Navbar = () => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [showLoginPage, setShowLoginPage] = useState(false);
 
-  interface LoginPageProps {
-    onClose: () => void;
-  }
+  
   
   const handleLoginClick = () => {
     
