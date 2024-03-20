@@ -1,9 +1,10 @@
 import React from 'react' 
-import Hero from '../components/Hero/Hero'
-import Popular from '../components/Popular/Popular'
+import Hero from './Hero'
+import Popular from './Popular'
+import Offers from './Offers'
 
 
-const shop =() => {
+const Shop =() => {
     return (
         <div>
             <Hero/>
@@ -16,4 +17,4 @@ const shop =() => {
     )
 }
 
-export default shop
+export default Shop;

@@ -59,31 +59,33 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 ">
           <div className="flex items-center gap-2">
             <div className="flex-shrink-0">
-              {/* Place the logo image here */}
+              {/*  logo image here */}
               <Image src={logo} height={70} width={70} alt="Logo" className="pr-auto" />
             </div>
-            {/* E-Commerce Website text */}
+            {/* Navbar Content */}
             <a href="/" className="ml-2 text-black font-bold text-2xl ">
               Shopper's hub
             </a>
           </div>
 
-          {/* Navigation links */}
+        
           <div className=" flex justify-end  md:flex items-center space-x-4 gap-10">
             <a href="/" className="text-black hover:bg-gray-300 rounded-md p-4 font-semibold text-2xl">
               About
             </a>
-            {/* Products dropdown */}
+           
             <div className=" flex justify-end  md:flex items-center space-x-4 gap-10">
             <a href="/" className="text-black hover:bg-gray-300 rounded-md p-4 font-semibold text-2xl">
               Men
             </a>
             </div>
+
             <div className=" flex justify-end  md:flex items-center space-x-4 gap-10">
             <a href="/" className="text-black hover:bg-gray-300 rounded-md p-4 font-semibold text-2xl">
               Women
             </a>
             </div>
+
             <div className=" flex justify-end  md:flex items-center space-x-4 gap-10">
             <a href="/" className="text-black hover:bg-gray-300 rounded-md p-4 font-semibold text-2xl">
               Kids
@@ -94,7 +96,8 @@ const Navbar = () => {
               <Image src={cart_icon} height={50} width={50} alt="Cart icon" />
               <span className="ml-1"></span>
             </a>
-           
+
+            {/*Login Button */}
             <button onClick={handleLoginClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto focus:outline-none focus:ring focus:border-blue-300">
   Login
   </button>
@@ -102,6 +105,8 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      {/*Conditional rendering of the Login Page when clicked*/}
       {showLoginPage && (
         <div className="fixed inset-0 z-40 bg-gray-700 bg-opacity-75"> 
         <div className="fixed inset-0 flex items-center justify-center z-50 min-h-screen margin: auto">

@@ -1,3 +1,5 @@
+
+{/* Exclusive Offers Banner */}
 import React from "react";
 import Image from "next/image";
 import exclusive_image from '../Assets/exclusive_image.png';

@@ -22,6 +22,7 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+            
             <div className="flex-1 items-center justify-center mr-30 flex flex-col">
                 <div className="flex items-center justify-center ">
                     <Image src={hero_image} alt="" width={550} height={800} />

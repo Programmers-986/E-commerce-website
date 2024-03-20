@@ -3,6 +3,7 @@ import Link from 'next/link';
 import cart_cross_icon from '../Assets/cart_cross_icon.png'; // Adjusted path
 import Image from 'next/image';
 
+
 interface LoginPageProps {
   onClose: () => void;
 }
@@ -16,11 +17,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
 
   const handleLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle login logic here
+   
     console.log('Email:', email);
     console.log('Password:', password);
   };
 
+  //Password and confirm password check
   const handleRegisterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage('');
@@ -28,7 +30,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
       setErrorMessage('Passwords do not match!');
       return;
     }
-    // Handle registration logic here with validated passwords
+   
     console.log('Email:', email);
     console.log('Password:', password);
   };
@@ -40,6 +42,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
         <button onClick={onClose} className="absolute top-5 right-5 mt-4">
           <Image src={cart_cross_icon} height={2} width={30} alt="Cart icon" />
         </button>
+
+        {/* Conditional Rendering of the Login Page */}
         {!registerMode ? (
           <form onSubmit={handleLoginSubmit}>
             <div className="mb-6">
@@ -87,6 +91,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
               </a>
             </div>
           </form>
+
+  //Conditional rendering of the register button      
+  
+
         ) : (
           <RegisterForm
             email={email}
@@ -105,6 +113,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onClose }) => {
   );
 };
 
+
+// Defining the interface of the elements that belong to registration component
 const RegisterForm: React.FC<{
   email: string;
   setEmail: React.Dispatch<React.SetStateAction<string>>;
@@ -115,9 +125,11 @@ const RegisterForm: React.FC<{
   setRegisterMode: React.Dispatch<React.SetStateAction<boolean>>;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   errorMessage: string;
-}> = ({ email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, setRegisterMode, handleSubmit, errorMessage }) => {
+ }> = ({ email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, setRegisterMode, handleSubmit, errorMessage }) => {
   return (
     <form onSubmit={handleSubmit}>
+
+       {/* Email  */}
       <div className="mb-4">
         <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
           Email
@@ -131,6 +143,8 @@ const RegisterForm: React.FC<{
           required
         />
       </div>
+
+      {/* Password   */}
       <div className="mb-4">
         <label htmlFor="password" className="block text-gray-700 font-bold mb-2">
           Password
@@ -144,6 +158,8 @@ const RegisterForm: React.FC<{
           required
         />
       </div>
+
+      {/* Confirm Password   */}
       <div className="mb-4">
         <label htmlFor="confirmPassword" className="block text-gray-700 font-bold mb-2">
           Confirm Password
@@ -156,8 +172,12 @@ const RegisterForm: React.FC<{
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           required
         />
+
+        {/* Displaying an error message when the required fields are not filled  */}
         {errorMessage && <p className="text-red-500 text-md font-semibold mt-1">{errorMessage}</p>}
       </div>
+
+      {/*  Register Button */}
       <div className="flex flex-col items-center">
         <button
           type="submit"
@@ -165,6 +185,8 @@ const RegisterForm: React.FC<{
         >
           Register
         </button>
+
+        {/* Directing to Login Page if user already has a website */}
         <a
           href="#"
           className="mt-2 inline-block align-baseline font-bold text-2xl text-black-500"
